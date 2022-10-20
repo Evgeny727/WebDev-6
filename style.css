@@ -1,0 +1,715 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap");
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+:root {
+    --background-color: #222831;
+}
+body {
+    font-family: sans-serif;
+    background: var(--background-color);
+    color: white;
+}
+header,nav,section,footer, .hamb {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* ========== Menu ==========*/
+header {
+    justify-content: space-between;
+    position: fixed;
+    width: 100%;
+    padding: 1em 4em;
+    background: #161a20;
+    box-shadow: 0 5px 20px 5px rgba(0, 0, 0, 0.3);
+    z-index: 10;
+}
+#logo {
+    width: 50px;
+    transition: 0.3s;
+}
+#logo:hover {
+    transform: scale(1.2);
+}
+nav {
+    justify-content: space-between;
+    width: max-content;
+}
+nav a {
+    text-decoration: none;
+    color: #fff;
+    padding: 1em 2em;
+    border: 1px solid transparent;
+    border-radius: 0.3em;
+    transition: 0.3s;
+}
+nav a:hover, nav a:active {
+    border: 1px solid #f05454;
+}
+.menu{
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    background-color: #161a20;
+    top: 5em;
+    right: 0;
+    transform: scaleY(0);
+    transform-origin: 0 0;
+    transition: 500ms;
+}
+.hamb{
+    cursor: pointer;
+    position: relative;
+    padding: 1em 2em;
+    display: none;
+}/* Style label tag */
+.hamb-line {
+    background: red;
+    display: block;
+    height: 3px;
+    position: relative;
+    width: 30px;
+} /* Style span tag */
+.hamb-line::before,
+.hamb-line::after{
+    background: red;
+    content: '';
+    display: block;
+    height: 100%;
+    position: absolute;
+    transition: all .2s ease-out;
+    width: 100%;
+}
+.hamb-line::before{
+    top: 8px;
+}
+.hamb-line::after{
+    top: -8px;
+}
+.side-menu {
+    display: none;
+} /* Hide checkbox */
+
+/* ========== Hero Section ==========*/
+section {
+    flex-grow: 1;
+    display: flex;
+    width: 100%;
+    height: 100vh;
+}
+/* ========== Footer ==========*/
+footer {
+    flex-shrink: 0;
+    background: #161a20;
+    padding: 3em;
+}
+/* плавный скролл */
+html {
+    scroll-behavior: smooth;
+}
+#home {
+    justify-content: space-around;
+}
+
+/* кастомный скроллбар */
+
+body::-webkit-scrollbar {
+    width: 15px;
+}
+body::-webkit-scrollbar-thumb {
+    background: linear-gradient(to top, #3300ff, #ff00eb);
+    border-radius: 20px;
+}
+body::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(to top, #ff7b00, #5900ff);
+}
+
+/*        task 2            */
+
+.loader {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    background: var(--background-color);
+    overflow: hidden;
+}
+.loader::before {
+    content: "";
+    position: absolute;
+    background: var(--background-color);
+    inset: 50px;
+    border-radius: 50%;
+    z-index: 1;
+}
+.loader::after {
+    content: "Загрузка...";
+    position: absolute;
+    inset: 30%;
+    top: 45%;
+    text-align: center;
+    font-size: xx-large;
+    z-index: 2;
+}
+.loader span {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(#3529e9, #b6ed31, #af2929);
+    border-radius: 50%;
+    animation: animate 1700ms linear infinite;
+}
+@keyframes animate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/*       task3        */
+
+#section-1 .card {
+    position: absolute;
+    display: flex;
+    flex-wrap: wrap;
+    width: 70%;
+    height: 50%;
+    justify-content: center;
+    align-items: center;
+}
+#section-1 .card .card1, #section-1 .card .card2, 
+#section-1 .card .card3,#section-1 .card .card4 {
+    width: 27%;
+    border: 1px solid white;
+    margin: 1em;
+}
+#section-1 .card .card1::before {
+    content: 'Left';
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    background: #af2929;
+    padding: 15%;
+    width: 70%;
+    font-size: xxx-large;
+    transform: translate(-15px, -15px);
+    transition: 500ms;
+    z-index: 1;
+}
+#section-1 .card .card2::before {
+    content: 'Top';
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    background: #af2929;
+    padding: 15%;
+    width: 70%;
+    font-size: xxx-large;
+    transform: translate(-15px, -15px);
+    transition: 500ms;
+    z-index: 1;
+}
+#section-1 .card .card3::before {
+    content: 'Right';
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    background: #af2929;
+    padding: 15%;
+    width: 70%;
+    font-size: xxx-large;
+    transform: translate(-15px, -15px);
+    transition: 500ms;
+    z-index: 1;
+}
+#section-1 .card .card4::before {
+    content: 'Bottom';
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    background: #af2929;
+    padding: 15%;
+    width: 70%;
+    font-size: xxx-large;
+    transform: translate(-15px, -15px);
+    transition: 500ms;
+    z-index: 1;
+}
+
+#section-1 .card .card1:hover::before {
+    transition: 500ms;
+    transform: translate(-15%, 15%);
+}
+#section-1 .card .card2:hover::before {
+    transition: 500ms;
+    transform: translateY(-15%);
+}
+#section-1 .card .card3:hover::before {
+    transition: 500ms;
+    transform: translate(15%, 15%);
+}
+#section-1 .card .card4:hover::before {
+    transition: 500ms;
+    transform: translateY(15%);
+}
+
+/*      task4       */
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+#section-2 .notifications {
+    width: 300px;
+    height: 360px;
+    display: flex;
+    flex-direction: column;
+}
+#section-2 .notifications .image {
+    transition: 700ms;
+}
+#section-2 .notifications ul {
+    background: ghostwhite;
+    color: black;
+    border-radius: 20px;
+    border-top-left-radius: initial;
+    border-top-right-radius: initial;
+    height: 300px;
+    opacity: 0;
+    transition: 400ms;
+}
+#section-2 .notifications ul li {
+    padding: 1em;
+    text-align: left;
+}
+#section-2 .notifications ul li span {
+    position: relative;
+    margin-right: 2%;
+    width: 30px;
+    height: 30px;
+    background: blueviolet;
+    border-radius: 50%;
+    padding: 0.6em;
+}
+#section-2 .notifications .image:hover {
+    transition: 700ms;
+    background: blueviolet;
+    border-radius: 10px;
+    border-bottom-left-radius: initial;
+    border-bottom-right-radius: initial;
+    padding: 3%;
+}
+#section-2 .notifications .image img:hover, #section-2 .notifications:hover ul {
+    transition: 1000ms;
+    transition-timing-function: ease-in-out;
+    opacity: 1;
+}
+
+/*      task5       */
+
+#section-3 {
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+#section-3 .card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 2rem;
+    width: 25%;
+    height: 70%;
+    background: white;
+    color: black;
+    padding: 2em;
+}
+#section-3 .card h2 {
+    margin-bottom: 2em;
+}
+#section-3 .card::before {
+    content: '01';
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    right: 0;
+    font-size: 14em;
+    color: white;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top right, blue, red);
+    z-index: 1;
+    transition: 1000ms;
+}
+#section-3 .card:nth-child(2)::before {
+    content: '02';
+    background: linear-gradient(to top right, #f0ff0e, #00f3ff);
+}
+#section-3 .card:nth-child(3)::before {
+    content: '03';
+    background: linear-gradient(to top right, #a900ff, #d50025);
+}
+#section-3 .card:hover::before {
+    transition: 1000ms;
+    transition-timing-function: ease-in-out;
+    font-size: 4em;
+    height: 15%;
+    transform: translateY(-30vh);
+}
+
+/*      task6       */
+
+#section-4 {
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+#section-4 .card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    margin: 2em;
+    width: 25%;
+    height: 70%;
+    color: white;
+    background: linear-gradient(to top, green, rgba(43, 170, 243, 0.26));
+    padding: 2em;
+    transition: 900ms;
+}
+#section-4 .card h2 {
+    margin-bottom: 1em;
+}
+a {
+    text-decoration: none;
+    color: white;
+}
+#section-4 .card a {
+    color: black;
+    width: 50%;
+    height: 2em;
+    background-color: white;
+    text-align: center;
+    padding: 0.5em;
+    margin-top: 1em;
+}
+#section-4 .card::before {
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-image:url(background-1.jpg);
+    background-position: center;
+    background-size: cover;
+    z-index: 1;
+    opacity: 1;
+    pointer-events: none;
+    transition: 900ms;
+}
+#section-4 .card:nth-child(2)::before {
+    content: '';
+    background-image:url(background-2.jpg);
+}
+#section-4 .card:nth-child(3)::before {
+    content: '';
+    background-image:url(background-3.jpg);
+}
+#section-4 .card:hover::before {
+    transition: 900ms;
+    opacity: 0.3;
+}
+
+/*      task7       */
+
+#section-5 {
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+#section-5 .card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    margin: 2em;
+    width: 25%;
+    height: 30%;
+    color: white;
+    background: white;
+    text-align: center;
+    padding: 2em;
+    padding-bottom: 7em;
+    transition: 900ms;
+}
+#section-5 .card::before {
+    content: '';
+    position: absolute;
+    right: 10%;
+    bottom: 7em;
+    width: 80%;
+    height: 250px;
+    background-image:url(background-1.jpg);
+    background-position: center;
+    background-size: cover;
+    transition: 900ms;
+}
+#section-5 .card:nth-child(2)::before {
+    content: '';
+    background-image:url(background-2.jpg);
+}
+#section-5 .card:nth-child(3)::before {
+    content: '';
+    background-image:url(background-3.jpg);
+}
+#section-5 .card:hover {
+    height: 50%;
+    color: black;
+    transition: 900ms;
+}
+#section-5 .card:hover::before {
+    transform: translateY(-20vh);
+    transition: 900ms;
+}
+
+/*      task8       */
+
+#section-6 .video {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    height: 70%;
+    z-index: 0;
+}
+#section-6 .video video {
+    max-width: 100%;
+}
+#section-6 .content {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 50%;
+    height: 45%;
+    left: 15%;
+    padding: 10em;
+    font-size: larger;
+    background-color: black;
+    color: white;
+    transition: 900ms;
+    opacity: 0;
+    z-index: 1;
+}
+#section-6 .content h2 {
+    margin-bottom: 2em;
+}
+#section-6 .content:hover, #section-6 .video:hover {
+    transition: 900ms;
+    opacity: 0.9;
+}
+
+/*    медиа запросы     */
+
+
+@media screen and (min-width: 2560px) {
+    #section-2 .notifications {
+        width: 400px;
+        height: 480px;
+        display: flex;
+        flex-direction: column;
+    }
+    #section-2 .notifications ul {
+        height: 400px;
+    }
+    #section-2 .notifications ul li {
+        padding: 1.1em;
+        text-align: left;
+        font-size: larger;
+    }
+    #section-2 .notifications .image img{
+        width: 60px;
+        height: 60px;
+    }
+    #section-5 .card {
+        font-size: x-large;
+        transition: 900ms;
+    }
+    #section-5 .card::before {
+        height: 350px;
+    }
+}
+@media screen and (max-width: 2000px) {
+    #section-6 .content {
+        width: 70%;
+        height: 50%;
+        left: 3vw;
+    }
+}
+@media screen and (max-width: 1100px) {
+    header {
+        padding: 1em 1em;
+    }
+}
+@media screen and (max-width: 1000px) {
+    #section-6 .content {
+        width: 70%;
+        height: 15%;
+        padding: 5em;
+        left: 2vw;
+        font-size: medium;
+    }
+    header {
+        padding: 1em 1em;
+    }
+    nav a {
+        padding: 1em 1em;
+    }
+}
+@media screen and (max-width: 800px){
+    nav a {
+        padding: 1em 0.5em;
+    }
+}
+@media screen and (max-width: 768px) {
+    .loader {
+        width: 200px;
+        height: 200px;
+    }
+    .loader::before {
+        content: "";
+        inset: 25px;
+    }
+    .loader::after {
+        content: "Загрузка...";
+        position: absolute;
+        inset: 30%;
+        top: 45%;
+        text-align: center;
+        font-size:larger;
+        z-index: 2;
+    }
+    #section-1 .card {
+        width: 100%;
+    }
+    #section-1 .card .card1, #section-1 .card .card2, 
+    #section-1 .card .card3,#section-1 .card .card4 {
+        width: 170px;
+    }
+    #section-1 .card .card1::before {
+        padding: 15%;
+        padding-left: 35%;
+        padding-right: 35%;
+        width: auto;
+        font-size: xx-large;
+    }
+    #section-1 .card .card2::before {
+        padding: 15%;
+        padding-left: 35%;
+        padding-right: 35%;
+        width: auto;
+        font-size: xx-large;
+    }
+    #section-1 .card .card3::before {
+        padding: 15%;
+        padding-left: 28%;
+        padding-right: 28%;
+        width: auto;
+        font-size: xx-large;
+    }
+    #section-1 .card .card4::before {
+        padding: 15%;
+        padding-left: 20%;
+        padding-right: 20%;
+        width: auto;
+        font-size: xx-large;
+    }
+    #section-3 {
+        height: 200vh;
+    }
+    #section-3 .card {
+        width: 80%;
+        max-height: max-content;
+        height: 30%;
+    }
+    #section-3 .card::before {
+        font-size: 12em;
+    }
+    #section-3 .card:hover::before {
+        transition: 1000ms;
+        transition-timing-function: ease-in-out;
+        font-size: 4em;
+        height: 15%;
+        transform: translateY(-26vh);
+    }
+    #section-4 {
+        height: 200vh;
+    }
+    #section-4 .card {
+        width: 80%;
+        max-height: max-content;
+        height: 30%;
+    }
+    #section-5 {
+        height: 200vh;
+    }
+    #section-5 .card {
+        width: 80%;
+        max-height: max-content;
+        height: 20%;
+    }
+    #section-5 .card:hover {
+        height: 30%;
+    }
+    #section-6 .video video {
+        width: 80%;
+    }
+    #section-6 .content {
+        padding: 3em;
+        font-size: smaller;
+    }
+    #section-6 .content h2 {
+        margin-bottom: 0.5em;
+    }
+}
+@media screen and (max-width: 760px) {
+    .hamb{
+        display: flex;
+    }
+    nav a{
+        display: none;
+    }
+    .menu a {
+        display: flex;
+    }
+    /* Toggle menu icon */
+    .side-menu:checked ~ .hamb .hamb-line {
+        background: transparent;
+    }
+    .side-menu:checked ~ .hamb .hamb-line::before {
+        transform: rotate(-45deg);
+        top:0;
+    }
+    .side-menu:checked ~ .hamb .hamb-line::after {
+        transform: rotate(45deg);
+        top:0;
+    }
+    .side-menu:checked ~ .menu {
+        transition: 500ms;
+        transform: scaleY(1);
+    }
+}
+@media screen and (max-width: 500px) {
+    #section-6 .content {
+        width: 70%;
+        height: 10%;
+        padding: 2em;
+        font-size: xx-small;
+    }
+}
